@@ -12,4 +12,12 @@ import type { Product } from '@models/product.model';
 })
 export class ProductsComponent {
   @Input() products: Product[] = []
+  shoppingCart: Product[] = [];
+  totalPrice: number = 0;
+
+  onAddToCart(product: Product){
+    console.log("ProductsComponent",product)
+    this.shoppingCart.push(product);
+    this.totalPrice = this.shoppingCart.reduce( (total, product) => total + product.price, 0);
+  }
 }
