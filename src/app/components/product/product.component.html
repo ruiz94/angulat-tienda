@@ -1,3 +1,6 @@
-<img width="200" [src]="product?.image" [alt]="product?.name">
+<!-- <img width="200" [src]="product?.image" [alt]="product?.name"> -->
+@if (product) {
+  <app-img [img]="product.image"/>
+}
 <h2>{{ product?.price | currency}}</h2>
 <p>{{ product?.name }}</p>
