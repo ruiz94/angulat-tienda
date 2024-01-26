@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '@components/product/product.component';
+import { StoreService } from '../../services/store.service';
 import type { Product } from '@models/product.model';
 
 @Component({
@@ -11,13 +12,18 @@ import type { Product } from '@models/product.model';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
+  private storeService = inject(StoreService);
   @Input() products: Product[] = []
   shoppingCart: Product[] = [];
+
   totalPrice: number = 0;
 
+  constructor(){
+    this.shoppingCart = this.storeService.getStore();
+  }
+
   onAddToCart(product: Product){
-    console.log("ProductsComponent",product)
-    this.shoppingCart.push(product);
-    this.totalPrice = this.shoppingCart.reduce( (total, product) => total + product.price, 0);
+    this.storeService.addProduct(product);
+    this.totalPrice = this.storeService.getTotal();
   }
 }
