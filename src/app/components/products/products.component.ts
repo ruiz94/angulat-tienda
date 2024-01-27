@@ -1,7 +1,8 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '@components/product/product.component';
 import { StoreService } from '../../services/store.service';
+import { ProductsService } from '../../services/products.service';
 import type { Product } from '@models/product.model';
 
 @Component({
@@ -12,14 +13,24 @@ import type { Product } from '@models/product.model';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
-  private storeService = inject(StoreService);
-  @Input() products: Product[] = []
+  products = signal<Product[]>([])
   shoppingCart: Product[] = [];
 
   totalPrice: number = 0;
 
-  constructor(){
+  constructor(
+    private productsService: ProductsService,
+    private storeService: StoreService
+  ){
     this.shoppingCart = this.storeService.getStore();
+  }
+
+  ngOnInit(){
+    this.productsService.getAllProducts()
+    .subscribe(data => {
+      console.log(data)
+      this.products.set(data);
+    })
   }
 
   onAddToCart(product: Product){

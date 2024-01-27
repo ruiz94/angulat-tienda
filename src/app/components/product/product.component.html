@@ -2,6 +2,6 @@
 @if (product) {
   <app-img [img]="product.image"/>
 }
-<h2>{{ product?.price | currency}}</h2>
-<p>{{ product?.name }}</p>
+<h2>{{ product?.price | currency:'MX'}}</h2>
+<p>{{ product?.title }}</p>
 <button (click)="addToCart()">Add to cart</button>
