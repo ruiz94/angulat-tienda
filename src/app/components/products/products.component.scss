@@ -13,7 +13,7 @@
 }
 
 //web
-@media screen and (min-width: 64em) and (max-width: 1200px){
+@media screen and (min-width: 64em) {
   .products--grid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);

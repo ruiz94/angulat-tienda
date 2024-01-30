@@ -28,7 +28,6 @@ export class ProductsComponent {
   ngOnInit(){
     this.productsService.getAllProducts()
     .subscribe(data => {
-      console.log(data)
       this.products.set(data);
     })
   }
