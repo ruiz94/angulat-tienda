@@ -19,29 +19,29 @@ export class ImgComponent {
     // console.log('constructor', 'ímg value =>', this.img)
   }
 
-  ngOnInit(){
-    // Before render
-    // We put owr Async things in here
-    // just run once
-    // console.log('ngOnInit', 'ímg value =>', this.img)
-  }
+  // ngOnInit(){
+  //   // Before render
+  //   // We put owr Async things in here
+  //   // just run once
+  //   // console.log('ngOnInit', 'ímg value =>', this.img)
+  // }
 
-  ngOnChanges(){
-    //Before and between Renders
-    // render every time there is a change
-    // console.log('ngOnChanges', 'ímg value =>', this.img)
-  }
+  // ngOnChanges(){
+  //   //Before and between Renders
+  //   // render every time there is a change
+  //   // console.log('ngOnChanges', 'ímg value =>', this.img)
+  // }
 
-  ngAfterViewInit(){
-    // After render
-    // handle children - the render is already set on the Dom
-    // console.log('ngAfterViewInit')
-  }
+  // ngAfterViewInit(){
+  //   // After render
+  //   // handle children - the render is already set on the Dom
+  //   // console.log('ngAfterViewInit')
+  // }
 
-  ngOnDestroy(){
-    // before deleting the component (unmounting)
-    // console.log("before destroy component")
-  }
+  // ngOnDestroy(){
+  //   // before deleting the component (unmounting)
+  //   // console.log("before destroy component")
+  // }
 
 
 

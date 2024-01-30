@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import type { Product } from '@models/product.model';
 import { ProductsComponent } from '@components/products/products.component';
 import { NavComponent } from '@components/nav/nav.component';
 

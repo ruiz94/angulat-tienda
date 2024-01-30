@@ -1,4 +1,4 @@
-import { Component, Input, inject, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '@components/product/product.component';
 import { StoreService } from '../../services/store.service';
@@ -12,7 +12,7 @@ import type { Product } from '@models/product.model';
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit{
   products = signal<Product[]>([])
   shoppingCart: Product[] = [];
 
