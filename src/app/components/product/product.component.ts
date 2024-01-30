@@ -14,9 +14,14 @@ import { RouterLinkWithHref, RouterLink } from '@angular/router';
 export class ProductComponent {
   @Input() product: Product | null = null
   @Output() addProduct = new EventEmitter<Product>();
+  @Output() showDetail = new EventEmitter<string>();
 
   addToCart(){
     if(this.product)
       this.addProduct.emit(this.product)
+  }
+  onShowDetail(){
+    if(this.product)
+      this.showDetail.emit(this.product.id);
   }
 }

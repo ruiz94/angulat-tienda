@@ -2,5 +2,13 @@
   {{totalPrice}}
 </p>
 <div class="products--grid">
-  <app-product *ngFor="let product of products()" [product]="product" (addProduct)="onAddToCart($event)"></app-product>
+  <app-product *ngFor="let product of products()" [product]="product" (addProduct)="onAddToCart($event)" (showDetail)="onShowDetail($event)"></app-product>
 </div>
+@if (productDetail) {
+  <div class="product-detail" [class.active]="showProductDetail">
+    <div>
+      <button (click)="onToggleProductDetail()">close</button>
+      <p>Title: {{ productDetail.title }}</p>
+    </div>
+  </div>
+}

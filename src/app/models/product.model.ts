@@ -1,13 +1,18 @@
-interface Rating{
+interface Rating {
   count: number,
   rate: number
 }
-export interface Product{
+
+interface Category {
+  id: string;
+  name: string
+}
+export interface Product {
   id: string,
   title: string,
   price: number,
-  image: string,
+  images: string[],
   description: string,
-  category: string,
+  category: Category,
   rating: Rating
 }

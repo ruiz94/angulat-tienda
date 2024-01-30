@@ -1,9 +1,10 @@
 <!-- <img width="200" [src]="product?.image" [alt]="product?.name"> -->
-<a routerLink="/product/">
+
 @if (product) {
-    <app-img [img]="product.image"/>
-  }
-  <h2>{{ product?.price | currency:'MX'}}</h2>
-  <p>{{ product?.title }}</p>
-  <button (click)="addToCart()">Add to cart</button>
-</a>
+  <app-img *ngIf="product.images.length > 0" [img]="product.images[0]" />
+}
+<h2>{{ product?.price | currency:'MX'}}</h2>
+<p>{{ product?.title }}</p>
+<button (click)="addToCart()">Add to cart</button>
+<button (click)="onShowDetail()">See Details</button>
+

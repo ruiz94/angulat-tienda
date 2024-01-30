@@ -50,7 +50,7 @@ export class ImgComponent {
   }
 
   imgLoaded(){
-    console.log("log hijo")
+    // console.log("log hijo")
     this.loaded.emit(this.img)
   }
 }
