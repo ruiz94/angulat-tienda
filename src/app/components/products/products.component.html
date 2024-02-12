@@ -1,14 +1,21 @@
 <p>
   {{totalPrice}}
 </p>
+<button (click)="createNewProduct()">create</button>
 <div class="products--grid">
   <app-product *ngFor="let product of products()" [product]="product" (addProduct)="onAddToCart($event)" (showDetail)="onShowDetail($event)"></app-product>
 </div>
+<button (click)="loadProductsByPage()" [ngStyle]="{'background-color': 'green', 'color': '#fff'}">Load More</button>
 @if (productDetail) {
   <div class="product-detail" [class.active]="showProductDetail">
     <div>
-      <button (click)="onToggleProductDetail()">close</button>
-      <p>Title: {{ productDetail.title }}</p>
+      <button class="btn-close" (click)="onToggleProductDetail()">close</button>
+      <app-img [img]="productDetail.images[0]" />
+      <p class="title">{{ productDetail.title }}</p>
+      <p>Price: <span class="price">{{ productDetail.price | currency }}</span></p>
+      <p class="desc">Description: {{ productDetail.description }}</p>
     </div>
+    <button (click)="updateProduct()">Edit</button>
+    <button (click)="deleteProduct()">Delete</button>
   </div>
 }

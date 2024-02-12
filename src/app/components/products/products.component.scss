@@ -15,8 +15,36 @@
   justify-content: flex-start;
   transition: all ease-out .5s;
   transform: translateX(100%);
+  box-shadow: 0 0 40px 10px rgb(0, 0, 0, .5);
   &.active{
     transform: translateX(0);
+  }
+
+  div{
+    margin: 2rem;
+  }
+  button.btn-close{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .img{
+    width: 100%;
+  }
+  .title{
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  .price{
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+  .desc{
+    margin-top: 20px;
   }
 }
 
